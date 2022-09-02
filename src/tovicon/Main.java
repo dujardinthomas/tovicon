@@ -1,3 +1,4 @@
+package tovicon;
 import java.util.Scanner;
 
 public class Main {

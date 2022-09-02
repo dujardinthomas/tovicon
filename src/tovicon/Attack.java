@@ -1,3 +1,4 @@
+package tovicon;
 public class Attack {
     private String nom;
     private int puissance ;

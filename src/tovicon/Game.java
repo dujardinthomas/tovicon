@@ -55,4 +55,15 @@ public class Game {
         }
         return monsterToReturn;
     }
+
+
+    // public boolean win(){
+    //     boolean win=true;
+    //     for(int i=0;i<arena.getMonsters().size();i++){
+    //         if(arena.getMonsters().get(i).getHealth()>0){
+    //             win=false;
+    //         }
+    //     }return win;
+        
+    // }
 }

@@ -14,7 +14,6 @@ public class Monster {
         this.name = name;
         this.representation = representation;
         this.attacks = attacks;
-        
     }
 
     public String getName() {

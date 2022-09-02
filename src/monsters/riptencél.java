@@ -33,6 +33,7 @@ public class riptencél extends Monster {
 		riptencél.attaque = new ArrayList<Attack>();
 		attaque.add(coupDeQueue);
 		attaque.add(uppercut);
+		
 	}
 
 }

@@ -32,6 +32,7 @@ public class Poukicha extends Monster{
 		Poukicha.attaque = new ArrayList<Attack>();
 		attaque.add(coupDeQueue);
 		attaque.add(uppercut);
+		
 	}
 	
 	

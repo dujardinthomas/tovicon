@@ -2,47 +2,39 @@ package tovicon;
 import java.util.Scanner;
 
 public class Main {
-	public static String choix;
-	public static void main(String[] args) throws Exception {
-		start();
+
+	public static void main(String[] args){
+		try {
+            choix();
+        } catch (WrongTapeException e) {
+            e.printStackTrace();
+        }
 	}
 
-	public static void start() {
-		boolean choisi=false;
-		@SuppressWarnings("resource")
-		Scanner scan = new Scanner(System.in);
-		while(!choisi) {
-			System.out.println("Bonjour");
-			System.out.println("Que veux tu faire ?");
-			System.out.println("1. Jouer");
-			System.out.println("2. Quitter");
+
+	public static void choix() throws WrongTapeException{
+		String choix;
+		System.out.println("Pour commencer à jouer entre 1, Pour quitter entre 2 :");
+		try (Scanner scan = new Scanner(System.in)) {
 			choix = scan.next();
-			if(choix.equals("1")) {
-				System.out.println("C'est parti !");
-				choisi=true;
-				play();
-			}
-			else if(choix.equals("2")){
-				System.out.println("le jeu va s'arreter !");
-				exit();
-				choisi=true;
-			}
-			else {
-				System.out.println("Je n'ai pas compris ton choix...\n");
-			}
+		}
+		if(choix.equals("1")){
+			System.out.println("C'est parti !");
+			play();
+		}else if(choix.equals("2")){
+			System.out.println("le jeu va s'arreter !");
+			System.out.println("A bientot !");
+			System.exit(0);
+		}else{
+			throw new WrongTapeException();
 		}
 	}
+
 	
 	public static void play() {
 		//CODE DU JEU ICI
 		Game game = new Game();
 		game.start();
-	}
-
-	public static void exit() {
-		//CODE DE FIN
-		System.out.println("A bientot !");
-
 	}
 
 

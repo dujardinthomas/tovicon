@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Arena {
 
     private ArrayList<Monster> monsters;
@@ -6,7 +8,7 @@ public class Arena {
     public boolean isDefeated(){
         boolean res = true;
         for(Monster i : monsters){
-            if(i.getHealth > 0){
+            if(i.getHealth() > 0){
                 res = false;
             }
         }

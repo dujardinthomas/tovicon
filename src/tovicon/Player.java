@@ -1,78 +1,53 @@
 package tovicon;
 import java.util.ArrayList;
+import monsters.*;
 
 public class Player {
-    
-
-    private String pseudo;
+    private String name;
     private int score;
-    private ArrayList<Monster> monster;
-    // private ArrayList<Items> items;
-    private int life;
+    private ArrayList<Monster> monsters;
+    private Monster selectedMonster;
+    private int arena;
 
-
-
-  public Player(String pseudo, ArrayList<Monster> monster) {
-        this.pseudo = pseudo;
+    public Player(String name, ArrayList<Monster> monsters) {
+        this.name = name;
         this.score = 0;
-        this.monster = monster;
-        this.life = 3;
+        this.monsters = monsters;
+        this.arena = 1;
+        if (monsters.get(0) != null) selectedMonster = monsters.get(0);
+        else selectedMonster = new Poukicha();
     }
 
-
-    public String getPseudo() {
-        return pseudo;
+    public String getName() {
+        return name;
     }
-
-
 
     public int getScore() {
         return score;
     }
 
-
-
-    public ArrayList<Monster> getMonster() {
-        return monster;
+    public void setScore(int score) {
+        this.score = score;
     }
 
-
-    public int getlife() {
-        return life;
+    public ArrayList<Monster> getMonsters() {
+        return monsters;
     }
 
-
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Player other = (Player) obj;
-        if (monster == null) {
-            if (other.monster != null)
-                return false;
-        } else if (!monster.equals(other.monster))
-            return false;
-        if (pseudo == null) {
-            if (other.pseudo != null)
-                return false;
-        } else if (!pseudo.equals(other.pseudo))
-            return false;
-        return true;
+    public Monster getSelectedMonster() {
+        return selectedMonster;
     }
 
-    
+    public void setSelectedMonster(Monster selectedMonster) {
+        this.selectedMonster = selectedMonster;
+    }
+
+    public boolean addMonster(Monster monster) {
+        if (monster != null) return monsters.add(monster);
+        return false;
+    }
+
     public String toString() {
-        return "Player ["+pseudo +" have "+ life +"lives ,  score= " + score + " and " + monster +"]";
+        return name + ": Arène: " + arena + " - Score: " + score + " - Monstres: " + monsters;
     }
-
-
-    
-
-
-
 }

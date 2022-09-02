@@ -82,7 +82,7 @@ public class Monster {
 
     @Override
     public String toString() {
-        return "Monster [attacks=" + attacks + ", health=" + health + ", name=" + name + ", representation="
-                + representation + "]";
+        return "Nom du Monstre= " + name + ", Attaque(s) = " + attacks + ", Vie = " + health +  ", Representation = "
+                + representation;
     }
 }

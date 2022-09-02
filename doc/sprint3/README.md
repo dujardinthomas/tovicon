@@ -18,8 +18,9 @@ Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer
     changer de monstre
     avoir plusieurs attaque
     combattre l'arene, lancer le combat
+    choisir un pseudo
 
-    pour un total de 16
+    pour un total de 17
 
 ## Rétrospective
 

@@ -40,16 +40,16 @@ public class Main {
 	
 	public static void changeMonster() throws WrongTapeException{
 		String choix;
-		System.out.println("Sélectionne ton nouveau  monstre :");
-		for(int i = 1; i < (player.getMonsters().size()+1); i++) {
-			System.out.println("\n"+ i + " :" + player.getMonsters().get(i).getName());
+		System.out.println("\nSélectionne ton nouveau  monstre :");
+		for(int i = 0; i < player.getMonsters().size(); i++) {
+			System.out.println("\n"+ (i+1) + " : " + player.getMonsters().get(i).getName());
 		}
 		Scanner scan = new Scanner(System.in);
 		choix = scan.next();
-		if(Integer.parseInt(choix)< 1 || Integer.parseInt(choix)< player.getMonsters().size()-1 ) {
+		if(Integer.parseInt(choix)< 1 || Integer.parseInt(choix) > player.getMonsters().size()) {
 			throw new WrongTapeException();
 		}else {
-			player.setSelectedMonster(player.getMonsters().get(Integer.parseInt(choix)));
+			player.setSelectedMonster(player.getMonsters().get(Integer.parseInt(choix)-1));
 		}
 	}
 

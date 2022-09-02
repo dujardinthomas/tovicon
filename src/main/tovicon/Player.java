@@ -1,5 +1,7 @@
 package tovicon;
 import java.util.ArrayList;
+
+import items.Items;
 import monsters.*;
 
 public class Player {
@@ -8,13 +10,15 @@ public class Player {
     private ArrayList<Monster> monsters;
     private Monster selectedMonster;
     private int arena;
+    private ArrayList<Items> bag; 
 
     public Player(String name, ArrayList<Monster> monsters) {
         this.name = name;
         this.score = 0;
         this.monsters = monsters;
         this.arena = 1;
-        selectedMonster = new Poukicha();
+        if (monsters.get(0) != null) selectedMonster = monsters.get(0);
+        else selectedMonster = new Poukicha();
     }
 
     public String getName() {
@@ -46,17 +50,26 @@ public class Player {
         return false;
     }
 
-    public boolean isDefeated(){
-        boolean res = true;
-        for(Monster i : monsters){
-            if(i.getHealth() > 0){
-                res = false;
-            }
-        }
-        return res;
-    }
-
     public String toString() {
         return name + ": Arène: " + arena + " - Score: " + score + " - Monstres: " + monsters;
     }
+
+	public ArrayList<Items> getBag() {
+		return bag;
+	}
+	
+	public boolean addItems(Items item) {
+		if(item != null) return bag.add(item);
+		return false;
+	}
+	
+	public void printBag() {
+		if(bag.size()<1) {
+			System.out.println("Le sac est vide");
+		}else {
+			for(int i = 0; i<bag.size(); i++) {
+				System.out.println("\n" + (i+1) +" "+ bag.get(i).getName());
+			}
+		}
+	}
 }

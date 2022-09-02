@@ -18,7 +18,7 @@ public class Attack {
 
 	@Override
 	public String toString() {
-		return "Nom = " + nom + ", Puissance = " + puissance;
+		return "" + nom + ", Puissance = " + puissance;
 	}
 
 }

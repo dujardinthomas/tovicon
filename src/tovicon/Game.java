@@ -38,8 +38,8 @@ public class Game {
         while (!found) {
 
             System.out.println("Choisi un monstre :\n");
-            System.out.println(monster1 + "\n");
-            System.out.println(monster2 + "\n");
+            System.out.println("1. " + monster1 + "\n");
+            System.out.println("2. " + monster2 + "\n");
 
             String answer = scanner.next();
 

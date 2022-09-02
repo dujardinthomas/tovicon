@@ -3,8 +3,6 @@ package tovicon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.management.monitor.MonitorSettingException;
-
 public class Game {
     private Player player;
     private Arena arena;

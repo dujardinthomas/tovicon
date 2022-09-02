@@ -1,4 +1,7 @@
-package tovicon;
+package monsters;
+
+import tovicon.CoupDeQueue;
+import tovicon.Monster;
 
 public class Poukicha extends Monster{
 	

@@ -1,16 +1,20 @@
 package tovicon;
 
+import java.util.ArrayList;
+
 public class Monster {
     private String name;
     private String representation;
     private int health = 100;
     private static final int nbMaxAttacks = 4;
-    private Attack attacks;
+    private ArrayList<Attack> attacks;
+    private Attack at;
 
-    public Monster(String name, String representation, Attack attacks) {
+    public Monster(String name, String representation, Attack at) {
         this.name = name;
         this.representation = representation;
-        this.attacks = attacks;
+        this.attacks = new ArrayList<Attack>();
+        attacks.add(at);
     }
 
     public String getName() {
@@ -37,7 +41,7 @@ public class Monster {
         this.health = health;
     }
 
-    public Attack getAttacks() {
+    public ArrayList<Attack>  getAttacks() {
         return attacks;
     }
 /*

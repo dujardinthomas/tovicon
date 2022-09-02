@@ -15,9 +15,8 @@ public class Main {
 	public static void choix() throws WrongTapeException{
 		String choix;
 		System.out.println("Pour commencer à jouer entre 1, Pour quitter entre 2 :");
-		try (Scanner scan = new Scanner(System.in)) {
-			choix = scan.next();
-		}
+		Scanner scan = new Scanner(System.in);
+		choix = scan.next();
 		if(choix.equals("1")){
 			System.out.println("C'est parti !");
 			play();

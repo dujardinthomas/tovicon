@@ -8,7 +8,6 @@ import javax.management.monitor.MonitorSettingException;
 public class Game {
     private Player player;
     private Arena arena;
-    private Scanner scanner = new Scanner(System.in);
     
     public void start() {
         String name = chooseName();
@@ -22,9 +21,10 @@ public class Game {
     private String chooseName() {
         String name = "Unknown";
 
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Quel est ton nom :\n");
         name = scanner.next();
-
         return name;
     }
 
@@ -34,6 +34,7 @@ public class Game {
 
         boolean found = false;
         Monster monsterToReturn = null;
+        Scanner scanner = new Scanner(System.in);
 
         while (!found) {
 
@@ -54,7 +55,6 @@ public class Game {
                         break;
                 }
         }
-        scanner.close();
         return monsterToReturn;
     }
 }

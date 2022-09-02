@@ -1,5 +1,4 @@
 package tovicon;
-import java.util.ArrayList;
 
 public class Monster {
     private String name;
@@ -49,7 +48,9 @@ public class Monster {
     }
 */
     public void attack (Attack atq, Monster ennemy) {
-    	
+    	System.out.println("\n" + getName() + " attaque avec " + atq.getNom() + " !");
+    	ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
+    	System.out.println("\n Il reste " + ennemy.getHealth() + " pv.");
     }
     @Override
     public int hashCode() {

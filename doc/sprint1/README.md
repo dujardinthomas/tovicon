@@ -6,26 +6,34 @@
 Donnez ici la liste des histoires utilisateurs que vous avez livrées durant ce sprint.
 Vous pouvez utiliser cette liste pour préparer votre démo.
 
-On a terminé nos backlogs
+Nous avons, comme annoncé, ameliorer nos histoires utilisateurs.
 
 ### Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
 
-On va commencer à coder. 
+* Avoir une arene
+* Lancer le jeu
+* Choisir un monstre
+
+Pour un total de 6.
 
 ## Rétrospective
 
 ### Sur quoi avons nous butté ?
 Lister ici tout ce qui était un peut moins bien que parfait.
-* Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
-* Étiez -vous prêts au moment de la démo ?
-* ...
+* Au vu des précedentes decisions, nous n'avons rien à signaler
+* Nous n'avions pas de demo à montrer à part nos histoires utilisateurs.
+
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
-* Comment pouvez-vous mesurer qu'il s'améliore ?
-* Quelles sont toutes les options possible pour l'améliorer ?
-* Qu'allez-vous tester pour l'améliorer ?
+* Nous n'avons rien à ameliorer si ce n'est la rapidité.
 
-# Mémo
-N’oubliez pas d’ajouter une photo du radiateur d’information au moment de la rétrospective.
+* Comment pouvez-vous mesurer qu'il s'améliore ?
+* Nous avons avancé dans notre travail, preuve d'amelioration.
+
+* Quelles sont toutes les options possible pour l'améliorer ?
+* La repartition des taches
+
+* Qu'allez-vous tester pour l'améliorer ?
+* le travail

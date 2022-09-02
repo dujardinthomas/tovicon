@@ -3,25 +3,36 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Donnez ici la liste des histoires utilisateurs que vous avez livrées durant ce sprint.
-Vous pouvez utiliser cette liste pour préparer votre démo.
+
+
+
+    Choisir un monstre
+    Avoir plusieurs monstres
+    Attaquer avec un monstre
+
+    pour un total de 8
 
 ### Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
+
+    changer de monstre
+    avoir plusieurs attaque
+    combattre l'arene, lancer le combat
+
+    pour un total de 16
 
 ## Rétrospective
 
 ### Sur quoi avons nous butté ?
 Lister ici tout ce qui était un peut moins bien que parfait.
-* Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
-* Étiez -vous prêts au moment de la démo ?
-* ...
+* Nous avons terminé, nous avons ameliorer le menus afin d'utiliser des exeptions et non une boucle while verifiant la validité des informations données.
+
+* Nous étions pret au moment de la demo ?
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
+* Rien n'est à ameliorer
 * Comment pouvez-vous mesurer qu'il s'améliore ?
 * Quelles sont toutes les options possible pour l'améliorer ?
 * Qu'allez-vous tester pour l'améliorer ?
 
-# Mémo
-N’oubliez pas d’ajouter une photo du radiateur d’information au moment de la rétrospective.

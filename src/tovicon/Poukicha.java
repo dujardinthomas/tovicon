@@ -4,8 +4,21 @@ public class Poukicha extends Monster{
 	
 	static CoupDeQueue coupDeQueue ;
 	
-	public Poukicha(String name, String representation, Attack attacks) {
-		super("Poukicha", "Inserer asciiart", coupDeQueue);
+	public Poukicha() {
+		super("Poukicha", ""
+				+ "`;-.          ___,\n" + 
+				"  `.`\\_...._/`.-\"`\n" + 
+				"    \\        /      ,\n" + 
+				"    /()   () \\    .' `-._\n" + 
+				"   |)  .    ()\\  /   _.'\n" + 
+				"   \\  -'-     ,; '. <\n" + 
+				"    ;.__     ,;|   > \\\n" + 
+				"   / ,    / ,  |.-'.-'\n" + 
+				"  (_/    (_/ ,;|.<`\n" + 
+				"    \\    ,     ;-`\n" + 
+				"     >   \\    /\n" + 
+				"    (_,-'`> .'\n" + 
+				"     (_,'", coupDeQueue);
 	}
 
 	

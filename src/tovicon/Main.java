@@ -35,7 +35,8 @@ public class Main {
 	
 	public static void play() {
 		//CODE DU JEU ICI
-
+		Game game = new Game();
+		game.start();
 	}
 
 	public static void exit() {

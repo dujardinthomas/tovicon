@@ -1,11 +1,11 @@
-package main.monsters;
+package monsters;
 
 import java.util.ArrayList;
 
-import main.attacks.CoupDeQueue;
-import main.attacks.Uppercut;
-import main.tovicon.Attack;
-import main.tovicon.Monster;
+import attacks.CoupDeQueue;
+import attacks.Uppercut;
+import tovicon.Attack;
+import tovicon.Monster;
 
 public class riptencél extends Monster {
 

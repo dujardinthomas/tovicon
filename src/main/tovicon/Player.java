@@ -1,6 +1,6 @@
-package main.tovicon;
+package tovicon;
 import java.util.ArrayList;
-import main.monsters.*;
+import monsters.*;
 
 public class Player {
     private String name;

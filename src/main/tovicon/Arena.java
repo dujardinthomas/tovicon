@@ -1,4 +1,4 @@
-package main.tovicon;
+package tovicon;
 import java.util.ArrayList;
 
 public class Arena {

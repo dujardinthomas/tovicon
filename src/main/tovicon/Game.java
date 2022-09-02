@@ -1,10 +1,10 @@
-package main.tovicon;
+package tovicon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import main.monsters.Poukicha;
-import main.monsters.riptencél;
+import monsters.Poukicha;
+import monsters.riptencél;
 
 public class Game {
     private Player player;

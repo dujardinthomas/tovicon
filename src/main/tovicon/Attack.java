@@ -1,4 +1,4 @@
-package main.tovicon;
+package tovicon;
 
 public class Attack {
     private String nom;

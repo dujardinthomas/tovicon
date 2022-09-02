@@ -1,6 +1,6 @@
-package main.attacks;
+package attacks;
 
-import main.tovicon.Attack;
+import tovicon.Attack;
 
 public class Uppercut extends Attack{
 

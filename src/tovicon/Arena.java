@@ -5,6 +5,11 @@ public class Arena {
 
     private ArrayList<Monster> monsters;
     private String name;
+    
+    public Arena(ArrayList<Monster> monsters, String name) {
+    	this.monsters=monsters;
+    	this.name=name;
+    }
 
     public boolean isDefeated(){
         boolean res = true;

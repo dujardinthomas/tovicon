@@ -8,13 +8,13 @@ public class Monster {
     private int health = 100;
     private static final int nbMaxAttacks = 4;
     private ArrayList<Attack> attacks;
-    private Attack at;
+   
 
-    public Monster(String name, String representation, Attack at) {
+    public Monster(String name, String representation, ArrayList<Attack> attacks) {
         this.name = name;
         this.representation = representation;
-        this.attacks = new ArrayList<Attack>();
-        attacks.add(at);
+        this.attacks = attacks;
+        
     }
 
     public String getName() {

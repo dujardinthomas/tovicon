@@ -1,14 +1,18 @@
 package monsters;
 
+import java.util.ArrayList;
+
 import attacks.CoupDeQueue;
 import attacks.Uppercut;
+import tovicon.Attack;
 import tovicon.Monster;
 
 public class riptencél extends Monster {
 
 	static CoupDeQueue coupDeQueue ;
 	static Uppercut uppercut;
-	
+	public static ArrayList<Attack> attaque;
+
 	public riptencél() {
 		super("Riptencél", "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" + 
 				"⠀⠀⠀⠀⠀⠀⠀⠀⣀⠠⠂⢁⠔⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" + 
@@ -24,7 +28,11 @@ public class riptencél extends Monster {
 				"⠀⠀⠀⠀⡧⠀⠀⠈⢂⡄⣀⣃⠀⠀⠀⢀⠧⠄⢐⠨⠊⠀⠀⠀\n" + 
 				"⠀⠀⠀⢀⡜⠀⠀⢀⡇⠀⠀⠈⣢⠈⣄⠈⡅⠉⠀⠀⠀⠀⠀⠀\n" + 
 				"⠀⠀⠀⠻⠮⠓⠂⠁⠀⠀⠀⠀⠷⡎⡢⣗⠇⠀⠀⠀⠀⠀⠀⠀\n" + 
-				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀", uppercut);
+				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀", attaque);
+		
+		riptencél.attaque = new ArrayList<Attack>();
+		attaque.add(coupDeQueue);
+		attaque.add(uppercut);
 	}
 
 }

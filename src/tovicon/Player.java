@@ -47,6 +47,16 @@ public class Player {
         return false;
     }
 
+    public boolean isDefeated(){
+        boolean res = true;
+        for(Monster i : monsters){
+            if(i.getHealth() > 0){
+                res = false;
+            }
+        }
+        return res;
+    }
+
     public String toString() {
         return name + ": Arène: " + arena + " - Score: " + score + " - Monstres: " + monsters;
     }

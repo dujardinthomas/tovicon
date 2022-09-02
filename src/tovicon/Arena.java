@@ -5,10 +5,12 @@ public class Arena {
 
     private ArrayList<Monster> monsters;
     private String name;
+    private Monster actualMonster;
     
     public Arena(ArrayList<Monster> monsters, String name) {
     	this.monsters=monsters;
     	this.name=name;
+        actualMonster = monsters.get(0);
     }
 
     public boolean isDefeated(){
@@ -28,7 +30,12 @@ public class Arena {
     public ArrayList<Monster> getMonsters(){
         return this.monsters;
     }
-    
-    
 
+    public Monster getActualMonster() {
+        return actualMonster;
+    }
+
+    public void setActualMonster(Monster actualMonster) {
+        this.actualMonster = actualMonster;
+    }
 }

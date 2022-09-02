@@ -1,4 +1,5 @@
-package tovicon;
+package main.tovicon;
+
 public class Attack {
     private String nom;
     private int puissance ;

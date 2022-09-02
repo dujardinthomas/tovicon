@@ -1,4 +1,4 @@
-package tovicon;
+package main.tovicon;
 
 import java.util.ArrayList;
 
@@ -43,18 +43,18 @@ public class Monster {
     public ArrayList<Attack>  getAttacks() {
         return attacks;
     }
-/*
+
     public boolean addAttack(Attack attack) {
         if (attacks.size() >= nbMaxAttacks)
             return false;
         return attacks.add(attack);
     }
-*/
+
     public void attack (Attack atq, Monster ennemy) {
-    	System.out.println("\n" + getName() + " attaque avec " + atq.getNom() + " !");
+    	System.out.println(getName() + " attaque avec " + atq.getNom() + " !\n");
     	ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
-    	System.out.println("\n Il reste " + ennemy.getHealth() + " pv.");
     }
+    
     @Override
     public int hashCode() {
         final int prime = 31;

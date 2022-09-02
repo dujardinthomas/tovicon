@@ -1,4 +1,4 @@
-package tovicon;
+package main.tovicon;
 import java.util.Scanner;
 
 public class Main {
@@ -52,5 +52,4 @@ public class Main {
 			player.setSelectedMonster(player.getMonsters().get(Integer.parseInt(choix)));
 		}
 	}
-
 }

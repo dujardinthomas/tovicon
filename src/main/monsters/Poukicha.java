@@ -1,18 +1,13 @@
-package monsters;
+package main.monsters;
 
 import java.util.ArrayList;
 
-import attacks.CoupDeQueue;
-import attacks.Uppercut;
-import tovicon.Attack;
-import tovicon.Monster;
+import main.attacks.CoupDeQueue;
+import main.attacks.Uppercut;
+import main.tovicon.Attack;
+import main.tovicon.Monster;
 
 public class Poukicha extends Monster{
-	
-	static CoupDeQueue coupDeQueue ;
-	static Uppercut uppercut;
-	public static ArrayList<Attack> attaque;
-	
 	public Poukicha() {
 		super("Poukicha", ""
 				+ "`;-.          ___,\n" + 
@@ -27,12 +22,10 @@ public class Poukicha extends Monster{
 				"    \\    ,     ;-`\n" + 
 				"     >   \\    /\n" + 
 				"    (_,-'`> .'\n" + 
-				"     (_,'", attaque);
+				"     (_,'", new ArrayList<Attack>());
 		
-		Poukicha.attaque = new ArrayList<Attack>();
-		attaque.add(coupDeQueue);
-		attaque.add(uppercut);
-		
+		addAttack(new CoupDeQueue());
+		addAttack(new Uppercut());
 	}
 	
 	

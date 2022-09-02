@@ -1,7 +1,10 @@
-package tovicon;
+package main.tovicon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import main.monsters.Poukicha;
+import main.monsters.riptencél;
 
 public class Game {
     private Player player;
@@ -29,8 +32,8 @@ public class Game {
     }
 
     private Monster chooseMonster() {
-        Monster monster1 = new Monster("Michel", "michel", new Attack("Tape", 1));
-        Monster monster2 = new Monster("Robert", "robert", new Attack("Balaye", 2));
+        Monster monster1 = new Poukicha();
+        Monster monster2 = new riptencél();
 
         boolean found = false;
         Monster monsterToReturn = null;
@@ -64,39 +67,44 @@ public class Game {
         Monster actualMonster;
         Attack actualAttack;
 
-        System.out.println(player.getSelectedMonster() + " contre " + arena.getActualMonster());
+        System.out.println(player.getSelectedMonster().getName() + " contre " + arena.getActualMonster().getName());
 
         while (!arena.isDefeated() && !player.isDefeated()) {
             // joueur1 sélectionne attaque
-            actualMonster = player.getSelectedMonster();
-            actualAttack = selectAttackFrom(actualMonster);
             // texte attaque (machin utilise machin)
             // joueur1 attaque (perd vie)
-            actualMonster.attack(actualAttack, arena.getActualMonster());
+            player.getSelectedMonster().attack(selectAttackFrom(player.getSelectedMonster()), arena.getActualMonster());
+            System.out.println("Il reste " + player.getSelectedMonster().getHealth() + "pv à " + player.getSelectedMonster().getName() + "\n");
             // joueur2 sélectionne attaque
-            actualMonster = arena.getActualMonster();
-            actualAttack = selectRandomAttackFrom(actualMonster);
             // texte attaque (machin utilise machin)
             // joueur2 attaque (perd vie)
-            actualMonster.attack(actualAttack, player.getSelectedMonster());
+            arena.getActualMonster().attack(selectAttackFrom(arena.getActualMonster()), player.getSelectedMonster());
+            System.out.println("Il reste " + arena.getActualMonster().getHealth() + "pv à " + arena.getActualMonster().getName() + "\n");
         }
     }
 
     private Attack selectAttackFrom(Monster monster) {
-        System.out.println("Veuillez choisir une attaque");
-        System.out.println("1) " + monster.getAttacks());
+        System.out.println("Veuillez choisir une attaque\n");
+        System.out.println("0) Nom de l'attaque - Puissance de l'attaque\n");
 
-        Attack attack;
+        for (int i = 0; i < monster.getAttacks().size(); i++) {
+            Attack attack = monster.getAttacks().get(i);
+            System.out.println((i+1) + ") " + attack.getNom() + " - " + attack.getPuissance() + "\n");
+        }
+
         int selection = -1;
         while (selection == -1) {
             selection = Integer.parseInt(scanner.next());
-            
+            if (selection <= 0 || selection > monster.getAttacks().size()) {
+                System.out.println("Veuillez choisir une attaque parmis celles disponibles.");
+                selection = -1;
+            }
         }
 
-        return new Attack("name", 1);
+        return monster.getAttacks().get(selection - 1);
     }
 
-    private Attack selectRandomAttackFrom(Monster monster) {
-        return new Attack("name", 1);
-    }
+    // private Attack selectRandomAttackFrom(Monster monster) {
+    //     return new Attack("name", 1);
+    // }
 }

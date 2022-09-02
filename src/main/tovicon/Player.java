@@ -1,6 +1,6 @@
-package tovicon;
+package main.tovicon;
 import java.util.ArrayList;
-import monsters.*;
+import main.monsters.*;
 
 public class Player {
     private String name;
@@ -14,8 +14,7 @@ public class Player {
         this.score = 0;
         this.monsters = monsters;
         this.arena = 1;
-        if (monsters.get(0) != null) selectedMonster = monsters.get(0);
-        else selectedMonster = new Poukicha();
+        selectedMonster = new Poukicha();
     }
 
     public String getName() {

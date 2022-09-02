@@ -1,4 +1,4 @@
-package tovicon;
+package main.tovicon;
 public class WrongTapeException extends Exception {
 
     public WrongTapeException(){

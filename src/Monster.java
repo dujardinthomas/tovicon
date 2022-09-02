@@ -5,9 +5,9 @@ public class Monster {
     private String representation;
     private int health = 100;
     private static final int nbMaxAttacks = 4;
-    private ArrayList<Attack> attacks;
+    private Attack attacks;
 
-    public Monster(String name, String representation, ArrayList<Attack> attacks) {
+    public Monster(String name, String representation, Attack attacks) {
         this.name = name;
         this.representation = representation;
         this.attacks = attacks;
@@ -37,16 +37,19 @@ public class Monster {
         this.health = health;
     }
 
-    public ArrayList<Attack> getAttacks() {
+    public Attack getAttacks() {
         return attacks;
     }
-
+/*
     public boolean addAttack(Attack attack) {
         if (attacks.size() >= nbMaxAttacks)
             return false;
         return attacks.add(attack);
     }
-
+*/
+    public void attack (Attack atq, Monster ennemy) {
+    	
+    }
     @Override
     public int hashCode() {
         final int prime = 31;

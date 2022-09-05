@@ -1,4 +1,4 @@
-package tovicon;
+package attacks;
 
 public class Attack {
     private String nom;
@@ -19,7 +19,7 @@ public class Attack {
 
 	@Override
 	public String toString() {
-		return "" + nom + ", Puissance = " + puissance;
+		return nom + " - " + puissance;
 	}
 
 }

@@ -1,6 +1,7 @@
 package tovicon;
 import java.util.ArrayList;
 
+import arenas.Arena;
 import items.Items;
 import monsters.*;
 
@@ -8,7 +9,7 @@ public class Player {
     private String name;
     private int score;
     private ArrayList<Monster> monsters;
-    private Monster selectedMonster;
+    private Monster actualMonster;
     private int arena;
     private ArrayList<Items> bag; 
 
@@ -17,8 +18,10 @@ public class Player {
         this.score = 0;
         this.monsters = monsters;
         this.arena = 1;
-        if (monsters.get(0) != null) selectedMonster = monsters.get(0);
-        else selectedMonster = new Poukicha();
+        if (monsters.get(0) != null) 
+            actualMonster = monsters.get(0);
+        else 
+            actualMonster = new Poukicha();
     }
 
     public String getName() {
@@ -37,12 +40,12 @@ public class Player {
         return monsters;
     }
 
-    public Monster getSelectedMonster() {
-        return selectedMonster;
+    public Monster getActualMonster() {
+        return actualMonster;
     }
 
-    public void setSelectedMonster(Monster selectedMonster) {
-        this.selectedMonster = selectedMonster;
+    public void setActualMonster(Monster actualMonster) {
+        this.actualMonster = actualMonster;
     }
 
     public boolean addMonster(Monster monster) {
@@ -50,8 +53,14 @@ public class Player {
         return false;
     }
 
-    public String toString() {
-        return name + ": Arène: " + arena + " - Score: " + score + " - Monstres: " + monsters;
+    public boolean isDefeated() {
+        boolean res = true;
+        for (Monster i : monsters) {
+            if (i.getHealth() > 0) {
+                res = false;
+            }
+        }
+        return res;
     }
 
 	public ArrayList<Items> getBag() {
@@ -72,4 +81,18 @@ public class Player {
 			}
 		}
 	}
+
+    public void getReward(Arena arena) {
+
+    }
+
+    public void healMonsters() {
+        for (Monster monster : monsters) {
+            monster.setHealth(100);
+        }
+    }
+
+    public String toString() {
+        return name + ": Arène: " + arena + " - Score: " + score + " - Monstres: " + monsters;
+    }
 }

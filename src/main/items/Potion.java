@@ -3,12 +3,10 @@ package items;
 public class Potion extends Items{
 	
 	public String getName() {
-		return "potion de soin";
+		return "Potion de soin";
 	}
 
-	
 	public String getDescription() {
-		return "\nPermet de redonner 30 points de vie à ton monstre.";
+		return "Permet de redonner 30 points de vie à ton monstre.";
 	}
-	
 }

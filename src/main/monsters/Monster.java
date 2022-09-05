@@ -1,13 +1,18 @@
-package tovicon;
+package monsters;
 
 import java.util.ArrayList;
+
+import attacks.Attack;
+import tovicon.Colors;
+import tovicon.Utils;
 
 public class Monster {
     private String name;
     private String representation;
+    private final int maxHealth = 100;
     private int health = 100;
     private static final int nbMaxAttacks = 4;
-    private ArrayList<Attack> attacks;
+    protected ArrayList<Attack> attacks;
    
 
     public Monster(String name, String representation, ArrayList<Attack> attacks) {
@@ -50,9 +55,35 @@ public class Monster {
         return attacks.add(attack);
     }
 
-    public void attack (Attack atq, Monster ennemy) {
-    	System.out.println(getName() + " attaque avec " + atq.getNom() + " !\n");
-    	ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
+    public void attack(Attack atq, Monster ennemy) {
+        Utils.clearScreen();
+    	System.out.println(name + " utilise " + atq.getNom() + " !\n");
+        ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
+    }
+
+    public void printAttacks() {
+        String res = "Attaques: ";
+        for (int i = 0; i < attacks.size(); i++) {
+            res += "\n" + (i + 1) + ") " + attacks.get(i);
+        }
+
+        System.out.println(res + "\n");
+    }
+
+    public void printHealth() {
+        String res = "Vie: " + Colors.TEXT_GREEN;
+        for (int i = 0; i < health / 5; i++) {
+            res += "=";
+        }
+        res += Colors.TEXT_RED;
+        for (int i = 0; i < maxHealth / 5 - health / 5; i++) {
+            res += "=";
+        }
+        System.out.println(res);
+    }
+
+    public void printRepresentation() {
+        System.out.println(Colors.TEXT_YELLOW + representation + Colors.TEXT_RESET);
     }
     
     @Override
@@ -85,7 +116,7 @@ public class Monster {
 
     @Override
     public String toString() {
-        return "Nom du Monstre= " + name + ", Attaque(s) = " + attacks + ", Vie = " + health +  ", Représentation = "
-                + representation;
+        String res = Colors.TEXT_RESET + "\n Nom: " + name + " - Vie: " + health;
+        return res;
     }
 }

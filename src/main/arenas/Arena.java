@@ -1,16 +1,20 @@
-package tovicon;
+package arenas;
 import java.util.ArrayList;
+
+// import items.Items;
+import monsters.Monster;
 
 public class Arena {
 
-    private ArrayList<Monster> monsters;
+    protected ArrayList<Monster> monsters;
     private String name;
-    private Monster actualMonster;
+    protected Monster actualMonster;
+    // private ArrayList<Monster> MReward;
+    // private ArrayList<Items> IReward;
     
-    public Arena(ArrayList<Monster> monsters, String name) {
-    	this.monsters=monsters;
+    public Arena(String name) {
+    	this.monsters = new ArrayList<>();
     	this.name=name;
-        actualMonster = monsters.get(0);
     }
 
     public boolean isDefeated(){
@@ -37,5 +41,10 @@ public class Arena {
 
     public void setActualMonster(Monster actualMonster) {
         this.actualMonster = actualMonster;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + name + "] " + "Monsters: " + monsters;
     }
 }

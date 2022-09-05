@@ -2,10 +2,9 @@ package monsters;
 
 import java.util.ArrayList;
 
+import attacks.Attack;
 import attacks.CoupDeQueue;
 import attacks.Uppercut;
-import tovicon.Attack;
-import tovicon.Monster;
 
 public class Poukicha extends Monster{
 	public Poukicha() {
@@ -24,14 +23,7 @@ public class Poukicha extends Monster{
 				"    (_,-'`> .'\n" + 
 				"     (_,'", new ArrayList<Attack>());
 		
-		addAttack(new CoupDeQueue());
-		addAttack(new Uppercut());
+		attacks.add(new CoupDeQueue());
+		attacks.add(new Uppercut());
 	}
-	
-	
-
-	
-
-
-
 }

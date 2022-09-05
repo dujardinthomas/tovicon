@@ -128,7 +128,8 @@ public class Game {
 
 			printMenuFight(player,arena);
 
-			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à " + arena.getActualMonster().getName() + "\n");
+			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à " + arena.getActualMonster().getName() + "\n");
+			System.out.println("Il reste " + Colors.TEXT_CYAN + arena.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + arena.getActualMonster().getName() + "\n");
 			//System.out.println(arena.getActualMonster());
 			arena.getActualMonster().printHealth();
 			arena.getActualMonster().printShield();
@@ -152,9 +153,11 @@ public class Game {
                 Utils.waitForInput(scanner);
                 Utils.clearScreen();
 
-				arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
+				//arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
+				chooseRandomOptionToFight(player, arena);
 
-				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à "+ player.getActualMonster().getName() + "\n");
+				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à "+ player.getActualMonster().getName() + "\n");
+				System.out.println("Il reste " + Colors.TEXT_CYAN + player.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + player.getActualMonster().getName() + "\n");
 				//System.out.println(player.getActualMonster());
 				player.getActualMonster().printHealth();
 				player.getActualMonster().printShield();
@@ -296,37 +299,40 @@ public class Game {
 		while(choice.equals("-1")) {
 			choice = scanner.next();
 			switch(choice) {
-			case "1" :
-                Utils.clearScreen();
-				player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
-				break;
-			case "2" :
-                Utils.clearScreen();
-				player.getActualMonster().setState(State.DEFENSE);
-				break;
-			case "3" :
-                Utils.clearScreen();
-                if(!playItems(selectItems())) {
+				case "1" :
+					Utils.clearScreen();
+					player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
+					break;
+				case "2" :
+					Utils.clearScreen();
+					player.getActualMonster().setState(State.DEFENSE);
+					System.out.println(arena.getName() + " a choisi de défendre.");
+					break;
+				case "3" :
+					Utils.clearScreen();
+					playItems(selectItems());
+					break;
+				case "4" :
+					Utils.clearScreen();
+					System.out.println("Le jeu va s'arreter !");
+					System.out.println("A bientot !");
+					scanner.close();
+					System.exit(0);
+					break;
+				default :
 					choice = "-1";
-				}
-                Utils.waitForInput(scanner);
-                Utils.clearScreen();
-                for (int i = 0; i < tab.length;i ++) {
-        			System.out.println((i+1) +". " + tab[i]);
-        		}
-				break;
-			case "4" :
-                Utils.clearScreen();
-				System.out.println("Le jeu va s'arreter !");
-				System.out.println("A bientot !");
-				scanner.close();
-				System.exit(0);
-				break;
-			default :
-				choice = "-1";
-				System.out.println("Choisis un des 4 choix !");
+					System.out.println("Choisis un des 4 choix !");
 			}
 		}
-	
+	}
+
+	public void chooseRandomOptionToFight(Player player, Arena arena) {
+		int choice = Utils.random(1, 4);
+		if (choice >= 1 && choice <=2) {
+			arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()), player.getActualMonster());
+		} else {
+			arena.getActualMonster().setState(State.DEFENSE);
+			System.out.println(arena.getName() + " a choisi de défendre.\n");
+		}
 	}
 }

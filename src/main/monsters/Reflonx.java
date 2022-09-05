@@ -3,7 +3,6 @@ package monsters;
 import java.util.ArrayList;
 
 import attacks.Attack;
-import attacks.CoupDeQueue;
 import attacks.Eboulement;
 import attacks.Uppercut;
 

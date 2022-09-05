@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import attacks.Attack;
 import attacks.CoupDeQueue;
 import attacks.RafaleFeu;
-import attacks.Uppercut;
 
 public class Riptencel extends Monster {
 

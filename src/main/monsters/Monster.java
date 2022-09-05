@@ -92,7 +92,7 @@ public class Monster {
                 ennemy.setHealth(ennemy.getHealth() - (atq.getPuissance() - ennemy.getShield()));
                 ennemy.setShield(0);
             } else {
-                ennemy.setHealth(health);
+                ennemy.setShield(ennemy.getShield() - atq.getPuissance());
             }
             ennemy.setState(State.NORMAL);
         } else {

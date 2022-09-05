@@ -6,12 +6,12 @@
 Donnez ici la liste des histoires utilisateurs que vous avez livrées durant ce sprint.
 Vous pouvez utiliser cette liste pour préparer votre démo.
 
-Nous avons, comme annoncé, ameliorer nos histoires utilisateurs.
+Nous avons amélioré nos histoires utilisateurs.
 
 ### Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
 
-* Avoir une arene
+* Avoir une arène
 * Lancer le jeu
 * Choisir un monstre
 
@@ -27,13 +27,13 @@ Lister ici tout ce qui était un peut moins bien que parfait.
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
-* Nous n'avons rien à ameliorer si ce n'est la rapidité.
+Améliorer la rapidité dans nos choix
 
 * Comment pouvez-vous mesurer qu'il s'améliore ?
-* Nous avons avancé dans notre travail, preuve d'amelioration.
+Si nous arrivons à respecter les délais prévus.
 
 * Quelles sont toutes les options possible pour l'améliorer ?
-* La repartition des taches
+Une meilleure répartition des tâches.
 
 * Qu'allez-vous tester pour l'améliorer ?
-* le travail
+Mieux se répartir les tâches.

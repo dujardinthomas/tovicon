@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import arenas.Arena;
 import items.Items;
+import items.Potion;
 import monsters.*;
 
 public class Player {
@@ -19,6 +20,7 @@ public class Player {
         this.monsters = monsters;
         this.arena = 1;
         bag = new ArrayList<>();
+        bag.add(new Potion());
         if (monsters.get(0) != null) 
             actualMonster = monsters.get(0);
         else 

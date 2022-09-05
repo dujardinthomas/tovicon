@@ -268,15 +268,22 @@ public class Game {
 	public Items selectItems(){
 
 		if(player.getBag().size()>0){
-			System.out.println("Quel objet veux-tu utiliser ??");
+			System.out.println("Quel objet veux-tu utiliser ?");
 			System.out.println("Pour ne pas utiliser d'objet et attaquer entre 'Non' ");
 			player.printBag();
 			String obj = scanner.next();
-			if(obj.equals("Non")){
+			obj.toLowerCase();
+			if(obj.equals("non")){
 				return null;
+			}else if(Integer.parseInt(obj)>0 && Integer.parseInt(obj)<= player.getBag().size()){
+				player.setScore(player.getScore()-20);
+				return player.getBag().get(Integer.parseInt(obj)-1);
+			}else{
+				System.out.println(" Je n'ai pas compris \n");
+				selectItems();
 			}
-			player.setScore(player.getScore()-20);
-			return player.getBag().get(Integer.parseInt(obj)-1);
+			
+			
 
 		}return null;
 	}

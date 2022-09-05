@@ -58,6 +58,18 @@ public class Monster {
         return maxHealth;
     }
 
+    public int getShield() {
+        return shield;
+    }
+
+    public void setShield(int shield) {
+        this.shield = shield;
+    }
+
+    public int getMaxShield() {
+        return maxShield;
+    }
+
     public State getState() {
         return state;
     }
@@ -74,8 +86,18 @@ public class Monster {
 
     public void attack(Attack atq, Monster ennemy) {
         Utils.clearScreen();
-    	System.out.println(name + " utilise " + atq.getNom() + " !\n");
-        ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
+        System.out.println(name + " utilise " + atq.getNom() + " !\n");
+        if (ennemy.getState() == State.DEFENSE) {
+            if (atq.getPuissance() > ennemy.getShield()) {
+                ennemy.setHealth(ennemy.getHealth() - (atq.getPuissance() - ennemy.getShield()));
+                ennemy.setShield(0);
+            } else {
+                ennemy.setHealth(health);
+            }
+            ennemy.setState(State.NORMAL);
+        } else {
+            ennemy.setHealth(ennemy.getHealth() - atq.getPuissance());
+        }
     }
 
     public void printAttacks() {

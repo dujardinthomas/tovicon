@@ -10,7 +10,7 @@ public class Utils {
 
     public static void waitForInput(Scanner scanner) {
         System.out.print("Appuyez sur Entrée pour continuer ...");
-        scanner.nextLine();
+        scanner.next();
     }
 
     public static int random(int min, int max) {

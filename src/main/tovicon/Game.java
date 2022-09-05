@@ -125,8 +125,8 @@ public class Game {
 			player.getActualMonster().printHealth();
 			player.getActualMonster().printShield();
 			player.getActualMonster().printRepresentation();
-			printmenucb(player,arena);
 
+			printMenuFight(player,arena);
 
 			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à " + arena.getActualMonster().getName() + "\n");
 			//System.out.println(arena.getActualMonster());
@@ -148,6 +148,10 @@ public class Game {
 				arena.getActualMonster().printHealth();
 				arena.getActualMonster().printShield();
 				arena.getActualMonster().printRepresentation();
+
+                Utils.waitForInput(scanner);
+                Utils.clearScreen();
+
 				arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
 
 				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à "+ player.getActualMonster().getName() + "\n");
@@ -187,7 +191,10 @@ public class Game {
 	}
 
 	private Attack selectAttackFrom(Monster monster) {
-		System.out.println("Veuillez choisir une attaque\n");
+        player.getActualMonster().printHealth();
+        player.getActualMonster().printShield();
+        player.getActualMonster().printRepresentation();
+
 		System.out.println("Nom de l'attaque - Puissance de l'attaque\n");
 
 		for (int i = 0; i < monster.getAttacks().size(); i++) {
@@ -198,6 +205,7 @@ public class Game {
 		int selection = -1;
 		while (selection == -1) {
 			try {
+                System.out.println("Veuillez choisir une attaque");
 				selection = Integer.parseInt(scanner.next());
 				if (selection <= 0 || selection > monster.getAttacks().size()) {
 					System.out.println("Veuillez choisir une attaque parmis celles disponibles.");
@@ -243,8 +251,6 @@ public class Game {
 		arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size())));
 	}
 
-
-
 	public Items selectItems(){
 
 		if(player.getBag().size()>0){
@@ -259,7 +265,6 @@ public class Game {
 
 		}return null;
 	}
-
 
 	public void playItems(Items item){
 		if(item!=null){
@@ -276,7 +281,7 @@ public class Game {
 		}
 	}
 
-	public void printmenucb(Player player, Arena arena) {
+	public void printMenuFight(Player player, Arena arena) {
 		String[] tab = new String[] {"Attaquer","Défendre","Sac","Fuir"};
 		for (int i = 0; i < tab.length;i ++) {
 			System.out.println((i+1) +". " + tab[i]);
@@ -287,18 +292,20 @@ public class Game {
 			choice = scanner.next();
 			switch(choice) {
 			case "1" :
+                Utils.clearScreen();
 				player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
 				break;
 			case "2" :
-				//TODO ajoutez fonction défendre
+                Utils.clearScreen();
 				player.getActualMonster().setState(State.DEFENSE);
 				break;
 			case "3" :
-				//utiliser objet
+                Utils.clearScreen();
 				playItems(selectItems());
 				break;
 			case "4" :
-				System.out.println("le jeu va s'arreter !");
+                Utils.clearScreen();
+				System.out.println("Le jeu va s'arreter !");
 				System.out.println("A bientot !");
 				scanner.close();
 				System.exit(0);
@@ -307,9 +314,6 @@ public class Game {
 				choice = "-1";
 				System.out.println("Choisis un des 4 choix !");
 			}
-			
-			
-
 		}
 	
 	}

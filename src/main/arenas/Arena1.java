@@ -1,5 +1,6 @@
 package arenas;
 
+import items.Potion;
 import monsters.Riptencel;
 
 public class Arena1 extends Arena {
@@ -7,5 +8,7 @@ public class Arena1 extends Arena {
         super("Carnaval");
         monsters.add(new Riptencel());
         actualMonster = monsters.get(0);
+        MReward = new Riptencel();
+        IReward = new Potion();
     }
 }

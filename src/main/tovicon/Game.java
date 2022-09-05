@@ -113,7 +113,9 @@ public class Game {
             player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
 
             System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à " + arena.getActualMonster().getName() + "\n");
-            System.out.println(arena.getActualMonster());
+            //System.out.println(arena.getActualMonster());
+            arena.getActualMonster().printHealth();
+            arena.getActualMonster().printRepresentation();
 
             Utils.waitForInput(scanner);
             Utils.clearScreen();
@@ -149,6 +151,10 @@ public class Game {
 
         else if (!player.isDefeated() && arena.isDefeated()) {
             System.out.println("Vous avez gagné.");
+
+            Utils.waitForInput(scanner);
+            Utils.clearScreen();
+
             player.getReward(arena);
             win = true;
             Utils.waitForInput(scanner);

@@ -1,4 +1,4 @@
-# Sprint 0
+# Sprint 9
 
 ## Démo + Planification du sprint suivant
 
@@ -6,14 +6,22 @@
 Donnez ici la liste des histoires utilisateurs que vous avez livrées durant ce sprint.
 Vous pouvez utiliser cette liste pour préparer votre démo.
 
+Nous avons fini le projet 
+Nous avons fait nos 2 dernières US.
+- Le score a la fin du jeu
+- L'enregistrement du score en csv
+
 ### Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
+
+Ba rien, la presentation au S1 puis le QCM sur l'agilité
 
 ## Rétrospective
 
 ### Sur quoi avons nous butté ?
 Lister ici tout ce qui était un peut moins bien que parfait.
 * Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
+OUI
 * Étiez -vous prêts au moment de la démo ?
 * ...
 

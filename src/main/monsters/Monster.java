@@ -49,6 +49,10 @@ public class Monster {
         return attacks;
     }
 
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+
     public boolean addAttack(Attack attack) {
         if (attacks.size() >= nbMaxAttacks)
             return false;

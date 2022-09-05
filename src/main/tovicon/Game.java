@@ -1,5 +1,8 @@
 package tovicon;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,6 +18,8 @@ import monsters.Poukicha;
 import monsters.Riptencel;
 
 public class Game {
+	private static String myPath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "csv" + File.separator;
+	private static String myFile = "scores.csv";
 	private Player player;
 	private ArrayList<Arena> arenas;
 	Scanner scanner = new Scanner(System.in);
@@ -177,7 +182,7 @@ public class Game {
 		if (!arena.isDefeated() && player.isDefeated()) {
 			player.setScore(player.getScore()-30);
 			System.out.println("Vous avez perdu.");
-			System.out.println(" SCORE  : "+ player.getScore() + " !\n");
+			printAndSaveScore();
 			Utils.waitForInput(scanner);
 		} 
 
@@ -279,6 +284,7 @@ public class Game {
 	public boolean playItems(Items item){
 		boolean res = false;
 		if(item!=null){
+			Utils.clearScreen();
 			System.out.println("Tu utilises "+ item.getName() +" :\n");
 			System.out.println(item.getDescription());
 			int i=player.getActualMonster().getHealth();
@@ -316,13 +322,17 @@ public class Game {
 					System.out.println(arena.getName() + " a choisi de défendre.");
 					break;
 				case "3" :
-					Utils.clearScreen();
-					playItems(selectItems());
+					if(!playItems(selectItems())) {
+						choice = "-1";
+					}
+					for (int i = 0; i < tab.length;i ++) {
+						System.out.println((i+1) +". " + tab[i]);
+					}
 					break;
 				case "4" :
 					Utils.clearScreen();
 					System.out.println("Le jeu va s'arreter !");
-					System.out.println("SCORE :" + player.getScore());
+					printAndSaveScore();
 					System.out.println("A bientot !");
 					scanner.close();
 					System.exit(0);
@@ -342,5 +352,21 @@ public class Game {
 			arena.getActualMonster().setState(State.DEFENSE);
 			System.out.println(arena.getName() + " a choisi de défendre.\n");
 		}
+	}
+
+	private void printAndSaveScore() {
+		System.out.println(" SCORE  : "+ player.getScore() + " !\n");
+
+		try {
+			FileWriter csvWriter = new FileWriter(myPath + myFile);
+			String[] HEADER = new String[] {"Name", ",", "Score"};
+			for (String header : HEADER) {
+				csvWriter.append(header);
+			}
+			csvWriter.append("\n");
+			csvWriter.append(player.getName() + "," + player.getScore());
+			csvWriter.flush();
+			csvWriter.close();
+		} catch (IOException exception) { }
 	}
 }

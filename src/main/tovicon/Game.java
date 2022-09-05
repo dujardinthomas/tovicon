@@ -277,7 +277,7 @@ public class Game {
 			}else{
 				player.getActualMonster().setHealth(player.getActualMonster().getMaxHealth());
 			}
-			System.out.println( player.getActualMonster().getName() + "a maintenant : " +player.getActualMonster().getHealth() + " PV \n" );
+			System.out.println( player.getActualMonster().getName() + " a maintenant : " +player.getActualMonster().getHealth() + " PV \n" );
 			player.getBag().remove(item);
 			res = true;
 		}else {
@@ -309,6 +309,8 @@ public class Game {
                 if(!playItems(selectItems())) {
 					choice = "-1";
 				}
+                Utils.waitForInput(scanner);
+                Utils.clearScreen();
                 for (int i = 0; i < tab.length;i ++) {
         			System.out.println((i+1) +". " + tab[i]);
         		}

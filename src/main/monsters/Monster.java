@@ -116,7 +116,7 @@ public class Monster {
 
     @Override
     public String toString() {
-        String res = Colors.TEXT_RESET + "\n Nom: " + name + " - Vie: " + health;
+        String res = "Nom: " + name + " - Vie: " + health;
         return res;
     }
 }

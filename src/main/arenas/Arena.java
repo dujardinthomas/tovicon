@@ -1,7 +1,7 @@
 package arenas;
 import java.util.ArrayList;
 
-// import items.Items;
+import items.Items;
 import monsters.Monster;
 
 public class Arena {
@@ -9,8 +9,8 @@ public class Arena {
     protected ArrayList<Monster> monsters;
     private String name;
     protected Monster actualMonster;
-    // private ArrayList<Monster> MReward;
-    // private ArrayList<Items> IReward;
+    protected Monster MReward;
+    protected Items IReward;
     
     public Arena(String name) {
     	this.monsters = new ArrayList<>();
@@ -41,6 +41,14 @@ public class Arena {
 
     public void setActualMonster(Monster actualMonster) {
         this.actualMonster = actualMonster;
+    }
+
+    public Monster getMReward() {
+        return MReward;
+    }
+
+    public Items getIReward() {
+        return IReward;
     }
 
     @Override

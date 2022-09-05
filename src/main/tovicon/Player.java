@@ -18,6 +18,7 @@ public class Player {
         this.score = 0;
         this.monsters = monsters;
         this.arena = 1;
+        bag = new ArrayList<>();
         if (monsters.get(0) != null) 
             actualMonster = monsters.get(0);
         else 
@@ -67,7 +68,7 @@ public class Player {
 		return bag;
 	}
 	
-	public boolean addItems(Items item) {
+	public boolean addItem(Items item) {
 		if(item != null) return bag.add(item);
 		return false;
 	}
@@ -83,7 +84,10 @@ public class Player {
 	}
 
     public void getReward(Arena arena) {
-
+        addMonster(arena.getMReward());
+        System.out.println("Vous avez obtenu un nouveau monstre ! " + arena.getMReward());
+        addItem(arena.getIReward());
+        System.out.println("Vous avez obtenu un nouvel objet ! " + arena.getIReward());
     }
 
     public void healMonsters() {

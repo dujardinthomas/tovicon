@@ -115,6 +115,7 @@ public class Game {
 			if (player.getActualMonster().getHealth() <= 0) {
 				try {
 					changeMonster(player);
+					player.setScore(player.getScore() - 30);
 					Utils.clearScreen();
 				}
 				catch (WrongTapeException exception) { System.out.println(exception); }
@@ -165,13 +166,18 @@ public class Game {
 
 				Utils.waitForInput(scanner);
 				Utils.clearScreen();
+			}
+			else{
+				player.setScore(player.getScore() + 50);
 			} // TODO si montre.health = 10-20 alors set health to 0
 		}
 
 		boolean win = false;
 
 		if (!arena.isDefeated() && player.isDefeated()) {
+			player.setScore(player.getScore()-30);
 			System.out.println("Vous avez perdu.");
+			System.out.println(" SCORE  : "+ player.getScore() + " !\n");
 			Utils.waitForInput(scanner);
 		} 
 
@@ -264,6 +270,7 @@ public class Game {
 			if(obj.equals("Non")){
 				return null;
 			}
+			player.setScore(player.getScore()-20);
 			return player.getBag().get(Integer.parseInt(obj)-1);
 
 		}return null;
@@ -315,6 +322,7 @@ public class Game {
 				case "4" :
 					Utils.clearScreen();
 					System.out.println("Le jeu va s'arreter !");
+					System.out.println("SCORE :" + player.getScore());
 					System.out.println("A bientot !");
 					scanner.close();
 					System.exit(0);

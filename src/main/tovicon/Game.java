@@ -8,6 +8,7 @@ import arenas.Arena1;
 import arenas.Arena2;
 import arenas.Arena3;
 import attacks.Attack;
+import items.Items;
 import monsters.Balbizurre;
 import monsters.Monster;
 import monsters.Poukicha;
@@ -118,6 +119,10 @@ public class Game {
                 }
                 catch (WrongTapeException exception) { System.out.println(exception); }
             }
+
+               //utiliser objet
+            playItems(selectItems());
+
             System.out.println("C'est au tour de " + player.getName());
             //System.out.println(player.getActualMonster());
             player.getActualMonster().printHealth();
@@ -234,5 +239,38 @@ public class Game {
             }
         }
         arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size())));
+    }
+
+
+
+    public Items selectItems(){
+
+        if(player.getBag().size()>0){
+            System.out.println("Quel objet veux-tu utiliser ??");
+            System.out.println("Pour ne pas utiliser d'objet et attaquer entre 'Non' ");
+            player.printBag();
+            String obj = scanner.next();
+            if(obj.equals("Non")){
+                return null;
+            }
+            return player.getBag().get(Integer.parseInt(obj)-1);
+           
+        }return null;
+    }
+    
+    
+    public void playItems(Items item){
+        if(item!=null){
+            System.out.println("Tu utilises "+ item.getName() +" :\n");
+            System.out.println(item.getDescription());
+            int i=player.getActualMonster().getHealth();
+            if(i+item.getPV() < player.getActualMonster().getMaxHealth()){
+                player.getActualMonster().setHealth(i + item.getPV());
+            }else{
+                player.getActualMonster().setHealth(player.getActualMonster().getMaxHealth());
+            }
+            System.out.println( player.getActualMonster().getName() + "a maintenant : " +player.getActualMonster().getHealth() + " PV \n" );
+            player.getBag().remove(item);
+        }
     }
 }

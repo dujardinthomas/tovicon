@@ -6,7 +6,9 @@
 Donnez ici la liste des histoires utilisateurs que vous avez livrées durant ce sprint.
 Vous pouvez utiliser cette liste pour préparer votre démo.
 
-Nous avons fait l'histoire utilsateur : lancer le jeu, avoir un arene
+-Lancer le jeu
+-Avoir un arene
+
 Pour un total de 3
 
 ### Ce que nous allons faire durant le prochain sprint
@@ -23,14 +25,17 @@ Pour un poids de 8
 
 ### Sur quoi avons nous butté ?
 Lister ici tout ce qui était un peut moins bien que parfait.
-* Nous étions pret pour la demo ?
-* Nous avons eu du mal au niveau git car nous sommes sur Eclipse et VSCode = interferences entre les fichiers systemes qui nous ont fait beuguer et pris du retard !
+* Nous étions pret pour la demo
+Nous avons eu du mal au niveau git car nous sommes sur Eclipse et VSCode = interferences entre les fichiers systemes qui nous ont fait beuguer et pris du retard !
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
-* rien à ameliorer
+Notre adaptation aux autres qui utilisent un IDE différent.
 * Comment pouvez-vous mesurer qu'il s'améliore ?
+Si nous réussissons à travailler ensemble sans qu'il n'y ai de bugs.
 * Quelles sont toutes les options possible pour l'améliorer ?
+Faire des recherches, demander de l'aide.
 * Qu'allez-vous tester pour l'améliorer ?
+Continuer de travailler.
 
 

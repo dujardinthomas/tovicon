@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import attacks.Attack;
 import attacks.FrappePsy;
+import attacks.PsychoPass;
 import attacks.RayonGemme;
 
 
@@ -25,7 +26,7 @@ public class Mewtwo extends Monster {
 				"⠀⠀⠀⠀⠀⠀⠀⢠⣿⡃⠀⠀⠀⠀⠶⠻⣷⣄⣀⢀⠀⠀\n" + 
 				"⠀⠀⠀⠀⠀⠀⣰⣿⡿⣿⠀⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀\n" + 
 				"⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",new ArrayList<Attack>());
-		attacks.add(new RayonGemme());
+		attacks.add(new PsychoPass());
 		attacks.add(new FrappePsy());
 
 	}

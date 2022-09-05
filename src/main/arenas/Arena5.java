@@ -11,8 +11,8 @@ public class Arena5 extends Arena {
         super("Temple");
         monsters.add(new Sablette());
         monsters.add(new Tenefix());
-        actualMonster = monsters.get(1);
-        MReward = monsters.get(5);
+        actualMonster = monsters.get(0);
+        MReward = monsters.get(1);
         IReward = new Potion();
     }
 }

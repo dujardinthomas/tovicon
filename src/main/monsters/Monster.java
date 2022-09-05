@@ -85,7 +85,7 @@ public class Monster {
     }
 
     public void attack(Attack atq, Monster ennemy) {
-        Utils.clearScreen();
+        //Utils.clearScreen();
         System.out.println(name + " utilise " + atq.getNom() + " !\n");
         if (ennemy.getState() == State.DEFENSE) {
             if (atq.getPuissance() > ennemy.getShield()) {

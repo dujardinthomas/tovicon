@@ -9,7 +9,7 @@ public class Utils {
     }
 
     public static void waitForInput(Scanner scanner) {
-        System.out.print("Appuyez sur Entrée pour continuer ...");
+        System.out.print("Entrez quelque chose pour continuer ...");
         scanner.next();
     }
 

@@ -10,6 +10,9 @@ import arenas.Arena;
 import arenas.Arena1;
 import arenas.Arena2;
 import arenas.Arena3;
+import arenas.Arena4;
+import arenas.Arena5;
+import arenas.Arena6;
 import attacks.Attack;
 import items.Items;
 import monsters.Balbizurre;
@@ -29,6 +32,9 @@ public class Game {
 		arenas.add(new Arena1());
 		arenas.add(new Arena2());
 		arenas.add(new Arena3());
+		arenas.add(new Arena4());
+		arenas.add(new Arena5());
+		arenas.add(new Arena6());
 	}
 
 	public void start() {
@@ -114,67 +120,131 @@ public class Game {
 		Utils.clearScreen();
 
 		while (!arena.isDefeated() && !player.isDefeated()) {
-			// joueur1 sélectionne attaque
-			// texte attaque (machin utilise machin)
-			// joueur1 attaque (perd vie)
+			
+			printMonstersFight(player, arena);
+
 			if (player.getActualMonster().getHealth() <= 0) {
 				try {
 					changeMonster(player);
 					player.setScore(player.getScore() - 30);
 					Utils.clearScreen();
+					printMonstersFight(player, arena);
 				}
 				catch (WrongTapeException exception) { System.out.println(exception); }
 			}
 
 			System.out.println("C'est au tour de " + player.getName());
-			//System.out.println(player.getActualMonster());
-			player.getActualMonster().printHealth();
-			player.getActualMonster().printShield();
-			player.getActualMonster().printRepresentation();
-
-			printMenuFight(player,arena);
-
-			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à " + arena.getActualMonster().getName() + "\n");
-			System.out.println("Il reste " + Colors.TEXT_CYAN + arena.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + arena.getActualMonster().getName() + "\n");
-			//System.out.println(arena.getActualMonster());
-			arena.getActualMonster().printHealth();
-			arena.getActualMonster().printShield();
-			arena.getActualMonster().printRepresentation();
 
 			Utils.waitForInput(scanner);
 			Utils.clearScreen();
-			// joueur2 sélectionne attaque
-			// texte attaque (machin utilise machin)
-			// joueur2 attaque (perd vie)
+
+			printMonstersFight(player, arena);
+
+			printMenuFight(player,arena);
+
+			Utils.clearScreen();
+
+			printMonstersFight(player, arena);
+
+			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à " + arena.getActualMonster().getName() + "\n");
+			System.out.println("Il reste " + Colors.TEXT_CYAN + arena.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + arena.getActualMonster().getName() + "\n");
+
+			Utils.waitForInput(scanner);
+			Utils.clearScreen();
+
 			if (!arena.isDefeated()) {
 				if (arena.getActualMonster().getHealth() <= 0) {
 					changeRandomMonster(arena);
 				}
+
+				printMonstersFight(player, arena);
+
 				System.out.println("C'est au tour de " + arena.getName());
-				//System.out.println(arena.getActualMonster());
-				arena.getActualMonster().printHealth();
-				arena.getActualMonster().printShield();
-				arena.getActualMonster().printRepresentation();
-
-                Utils.waitForInput(scanner);
-                Utils.clearScreen();
-
-				//arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
-				chooseRandomOptionToFight(player, arena);
-
-				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à "+ player.getActualMonster().getName() + "\n");
-				System.out.println("Il reste " + Colors.TEXT_CYAN + player.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + player.getActualMonster().getName() + "\n");
-				//System.out.println(player.getActualMonster());
-				player.getActualMonster().printHealth();
-				player.getActualMonster().printShield();
-				player.getActualMonster().printRepresentation();
 
 				Utils.waitForInput(scanner);
 				Utils.clearScreen();
-			}
-			else{
+
+				printMonstersFight(player, arena);
+
+				chooseRandomOptionToFight(player, arena);
+
+				Utils.waitForInput(scanner);
+				Utils.clearScreen();
+
+				printMonstersFight(player, arena);
+
+				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à "+ player.getActualMonster().getName() + "\n");
+				System.out.println("Il reste " + Colors.TEXT_CYAN + player.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + player.getActualMonster().getName() + "\n");
+
+				Utils.waitForInput(scanner);
+				Utils.clearScreen();
+			} else {
 				player.setScore(player.getScore() + 50);
-			} // TODO si montre.health = 10-20 alors set health to 0
+			}
+
+
+
+			// joueur1 sélectionne attaque
+			// texte attaque (machin utilise machin)
+			// joueur1 attaque (perd vie)
+			// if (player.getActualMonster().getHealth() <= 0) {
+			// 	try {
+			// 		changeMonster(player);
+			// 		player.setScore(player.getScore() - 30);
+			// 		Utils.clearScreen();
+			// 	}
+			// 	catch (WrongTapeException exception) { System.out.println(exception); }
+			// }
+
+			// System.out.println("C'est au tour de " + player.getName());
+			// //System.out.println(player.getActualMonster());
+			// player.getActualMonster().printHealth();
+			// player.getActualMonster().printShield();
+			// player.getActualMonster().printRepresentation();
+
+			// printMenuFight(player,arena);
+
+			// System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à " + arena.getActualMonster().getName() + "\n");
+			// System.out.println("Il reste " + Colors.TEXT_CYAN + arena.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + arena.getActualMonster().getName() + "\n");
+			// //System.out.println(arena.getActualMonster());
+			// arena.getActualMonster().printHealth();
+			// arena.getActualMonster().printShield();
+			// arena.getActualMonster().printRepresentation();
+
+			// Utils.waitForInput(scanner);
+			// Utils.clearScreen();
+			// joueur2 sélectionne attaque
+			// texte attaque (machin utilise machin)
+			// joueur2 attaque (perd vie)
+			// if (!arena.isDefeated()) {
+			// 	if (arena.getActualMonster().getHealth() <= 0) {
+			// 		changeRandomMonster(arena);
+			// 	}
+			// 	System.out.println("C'est au tour de " + arena.getName());
+			// 	//System.out.println(arena.getActualMonster());
+			// 	arena.getActualMonster().printHealth();
+			// 	arena.getActualMonster().printShield();
+			// 	arena.getActualMonster().printRepresentation();
+
+            //     Utils.waitForInput(scanner);
+            //     Utils.clearScreen();
+
+			// 	//arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
+			// 	chooseRandomOptionToFight(player, arena);
+
+			// 	System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + " pv à "+ player.getActualMonster().getName() + "\n");
+			// 	System.out.println("Il reste " + Colors.TEXT_CYAN + player.getActualMonster().getShield() + Colors.TEXT_RESET + " de bouclier à " + player.getActualMonster().getName() + "\n");
+			// 	//System.out.println(player.getActualMonster());
+			// 	player.getActualMonster().printHealth();
+			// 	player.getActualMonster().printShield();
+			// 	player.getActualMonster().printRepresentation();
+
+			// 	Utils.waitForInput(scanner);
+			// 	Utils.clearScreen();
+			// }
+			// else{
+			// 	player.setScore(player.getScore() + 50);
+			// } // TODO si montre.health = 10-20 alors set health to 0
 		}
 
 		boolean win = false;
@@ -204,10 +274,21 @@ public class Game {
 		return win;
 	}
 
-	private Attack selectAttackFrom(Monster monster) {
-        player.getActualMonster().printHealth();
-        player.getActualMonster().printShield();
-        player.getActualMonster().printRepresentation();
+	private void printMonstersFight(Player player, Arena arena) {
+		arena.getActualMonster().printHealth();
+		arena.getActualMonster().printShield();
+		arena.getActualMonster().printRepresentation();
+
+		System.out.println("\n\n\n\n");
+
+		player.getActualMonster().printHealth();
+		player.getActualMonster().printShield();
+		player.getActualMonster().printRepresentation();
+		System.out.println("\n\n");
+	}
+
+	private Attack selectAttackFrom(Monster monster, Arena arena) {
+        printMonstersFight(player, arena);
 
 		System.out.println("Nom de l'attaque - Puissance de l'attaque\n");
 
@@ -234,7 +315,7 @@ public class Game {
 		return monster.getAttacks().get(selection - 1);
 	}
 
-	private Attack selectRandomAttackFrom(Monster monster) {
+	private Attack selectRandomAttackFrom(Monster monster, Arena arena) {
 		return monster.getAttacks().get(Utils.random(0, monster.getAttacks().size()));
 	}
 
@@ -262,7 +343,9 @@ public class Game {
 				monstersNotDead.add(monster);
 			}
 		}
-		arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size())));
+		Monster monster = monstersNotDead.get(Utils.random(0, monstersNotDead.size()));
+		arena.setActualMonster(monster);
+		//System.out.println(arena.getName() + " a changé de monsre pour " + monster.getName());
 	}
 
 	public Items selectItems(){
@@ -314,7 +397,7 @@ public class Game {
 			switch(choice) {
 				case "1" :
 					Utils.clearScreen();
-					player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
+					player.getActualMonster().attack(selectAttackFrom(player.getActualMonster(), arena), arena.getActualMonster());
 					break;
 				case "2" :
 					Utils.clearScreen();
@@ -347,7 +430,7 @@ public class Game {
 	public void chooseRandomOptionToFight(Player player, Arena arena) {
 		int choice = Utils.random(1, 4);
 		if (choice >= 1 && choice <=2) {
-			arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()), player.getActualMonster());
+			arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster(), arena), player.getActualMonster());
 		} else {
 			arena.getActualMonster().setState(State.DEFENSE);
 			System.out.println(arena.getName() + " a choisi de défendre.\n");

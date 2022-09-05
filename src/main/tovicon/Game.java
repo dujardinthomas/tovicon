@@ -1,6 +1,7 @@
 package tovicon;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -341,6 +342,11 @@ public class Game {
 					System.out.println("Le jeu va s'arreter !");
 					printAndSaveScore();
 					System.out.println("A bientot !");
+					try {
+						readAndPrintScoreBoard();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					}
 					scanner.close();
 					System.exit(0);
 					break;
@@ -375,5 +381,20 @@ public class Game {
 			csvWriter.flush();
 			csvWriter.close();
 		} catch (IOException exception) { }
+	}
+	
+	public void readAndPrintScoreBoard() throws FileNotFoundException{
+
+		File getCSVFiles = new File(myPath + myFile);
+		Scanner sc = new Scanner(getCSVFiles);
+		sc.useDelimiter(",");
+		System.out.println();
+
+		while (sc.hasNext())
+		{
+			System.out.print(sc.next() + " | ");
+		}
+		sc.close();  
+
 	}
 }

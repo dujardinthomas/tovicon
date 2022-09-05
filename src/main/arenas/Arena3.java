@@ -1,12 +1,12 @@
 package arenas;
 
 import items.Potion;
-import monsters.Ectaplasmo;
+import monsters.Wem;
 
-public class Arena1 extends Arena {
-    public Arena1() {
-        super("Carnaval");
-        monsters.add(new Ectaplasmo());
+public class Arena3 extends Arena{
+    public Arena3() {
+        super("Croustiflex");
+        monsters.add(new Wem());
         actualMonster = monsters.get(0);
         MReward = monsters.get(0);
         IReward = new Potion();

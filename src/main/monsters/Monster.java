@@ -5,20 +5,25 @@ import java.util.ArrayList;
 import attacks.Attack;
 import tovicon.Colors;
 import tovicon.Utils;
+import tovicon.State;
 
 public class Monster {
     private String name;
     private String representation;
     private final int maxHealth = 100;
     private int health = 100;
+    private final int maxShield = 35;
+    private int shield = 35;
     private static final int nbMaxAttacks = 4;
     protected ArrayList<Attack> attacks;
+    private State state;
    
 
     public Monster(String name, String representation, ArrayList<Attack> attacks) {
         this.name = name;
         this.representation = representation;
         this.attacks = attacks;
+        state = State.NORMAL;
     }
 
     public String getName() {
@@ -53,6 +58,14 @@ public class Monster {
         return maxHealth;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public boolean addAttack(Attack attack) {
         if (attacks.size() >= nbMaxAttacks)
             return false;
@@ -83,7 +96,19 @@ public class Monster {
         for (int i = 0; i < maxHealth / 5 - health / 5; i++) {
             res += "=";
         }
-        System.out.println(res);
+        System.out.println(res + Colors.TEXT_RESET);
+    }
+
+    public void printShield() {
+        String res = "Shield: " + Colors.TEXT_CYAN;
+        for (int i = 0; i < shield / 2; i++) {
+            res += "=";
+        }
+        res += Colors.TEXT_RED;
+        for (int i = 0; i < maxShield / 2 - shield / 2; i++) {
+            res += "=";
+        }
+        System.out.println(res + Colors.TEXT_RESET);
     }
 
     public void printRepresentation() {

@@ -123,6 +123,7 @@ public class Game {
 			System.out.println("C'est au tour de " + player.getName());
 			//System.out.println(player.getActualMonster());
 			player.getActualMonster().printHealth();
+			player.getActualMonster().printShield();
 			player.getActualMonster().printRepresentation();
 			printmenucb(player,arena);
 
@@ -130,6 +131,7 @@ public class Game {
 			System.out.println("Il reste " + Colors.TEXT_GREEN + arena.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à " + arena.getActualMonster().getName() + "\n");
 			//System.out.println(arena.getActualMonster());
 			arena.getActualMonster().printHealth();
+			arena.getActualMonster().printShield();
 			arena.getActualMonster().printRepresentation();
 
 			Utils.waitForInput(scanner);
@@ -144,12 +146,14 @@ public class Game {
 				System.out.println("C'est au tour de " + arena.getName());
 				//System.out.println(arena.getActualMonster());
 				arena.getActualMonster().printHealth();
+				arena.getActualMonster().printShield();
 				arena.getActualMonster().printRepresentation();
 				arena.getActualMonster().attack(selectRandomAttackFrom(arena.getActualMonster()),player.getActualMonster());
 
 				System.out.println("Il reste " + Colors.TEXT_GREEN + player.getActualMonster().getHealth() + Colors.TEXT_RESET + "pv à "+ player.getActualMonster().getName() + "\n");
 				//System.out.println(player.getActualMonster());
 				player.getActualMonster().printHealth();
+				player.getActualMonster().printShield();
 				player.getActualMonster().printRepresentation();
 
 				Utils.waitForInput(scanner);
@@ -283,10 +287,11 @@ public class Game {
 			choice = scanner.next();
 			switch(choice) {
 			case "1" :
-				 player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
-				 break;
+				player.getActualMonster().attack(selectAttackFrom(player.getActualMonster()), arena.getActualMonster());
+				break;
 			case "2" :
 				//TODO ajoutez fonction défendre
+				player.getActualMonster().setState(State.DEFENSE);
 				break;
 			case "3" :
 				//utiliser objet

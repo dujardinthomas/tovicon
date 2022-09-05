@@ -3,9 +3,7 @@ package monsters;
 import java.util.ArrayList;
 
 import attacks.Attack;
-import attacks.CoupDeQueue;
 import attacks.PistoPoing;
-import attacks.Uppercut;
 import attacks.Vibrobscur;
 
 public class Nictaloe extends Monster {

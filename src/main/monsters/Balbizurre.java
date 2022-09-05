@@ -3,10 +3,8 @@ package monsters;
 import java.util.ArrayList;
 
 import attacks.Attack;
-import attacks.CoupDeQueue;
 import attacks.LanceSoleil;
 import attacks.PistoPoing;
-import attacks.Uppercut;
 
 public class Balbizurre extends Monster {
 

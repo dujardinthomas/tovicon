@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 import attacks.Attack;
 import attacks.CoupDeQueue;
+import attacks.RafaleFeu;
 import attacks.Uppercut;
 
 public class Riptencel extends Monster {
-
-	static CoupDeQueue coupDeQueue;
-	static Uppercut uppercut;
 
 	public Riptencel() {
 		super("Riptencél", "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" + 
@@ -29,7 +27,7 @@ public class Riptencel extends Monster {
 				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀", new ArrayList<Attack>());
 		
 		attacks.add(new CoupDeQueue());
-		attacks.add(new Uppercut());
+		attacks.add(new RafaleFeu());
 	}
 
 }

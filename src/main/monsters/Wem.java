@@ -2,9 +2,9 @@ package monsters;
 
 import java.util.ArrayList;
 import attacks.Attack;
-import attacks.CoupDeQueue;
+import attacks.Eboulement;
 import attacks.FrappePsy;
-import attacks.Uppercut;
+import attacks.LanceSoleil;
 
 public class Wem extends Monster{
 	public Wem() {
@@ -24,7 +24,8 @@ public class Wem extends Monster{
 				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⡿⣿⣿⠀⠀⠀⠀\n" + 
 				"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠀⠀⠀⠀⠀", new ArrayList<Attack>());
 		
-		attacks.add(new CoupDeQueue());
+		attacks.add(new Eboulement());
+		attacks.add(new LanceSoleil());
 		attacks.add(new FrappePsy());
 	}
 }

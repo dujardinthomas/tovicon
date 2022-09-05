@@ -6,7 +6,9 @@ import java.util.Scanner;
 import arenas.Arena;
 import arenas.Arena1;
 import arenas.Arena2;
+import arenas.Arena3;
 import attacks.Attack;
+import monsters.Balbizurre;
 import monsters.Monster;
 import monsters.Poukicha;
 import monsters.Riptencel;
@@ -20,6 +22,7 @@ public class Game {
         arenas = new ArrayList<>();
         arenas.add(new Arena1());
         arenas.add(new Arena2());
+        arenas.add(new Arena3());
     }
 
     public void start() {
@@ -53,16 +56,17 @@ public class Game {
     private Monster chooseMonster() {
         Monster monster1 = new Poukicha();
         Monster monster2 = new Riptencel();
+        Monster monster3 = new Balbizurre();
 
         boolean found = false;
         Monster monsterToReturn = null;
 
-        System.out.println("1. " + monster2.getName());
+        System.out.println("1. " + monster1.getName());
         monster1.printRepresentation();
-        monster1.printAttacks();
         System.out.println("2. " + monster2.getName());
         monster2.printRepresentation();
-        monster2.printAttacks();
+        System.out.println("3. " + monster3.getName());
+        monster3.printRepresentation();
 
         while (!found) {
 
@@ -77,6 +81,10 @@ public class Game {
                     case "2":
                         found = true;
                         monsterToReturn = monster2;
+                        break;
+                    case "3":
+                        found = true;
+                        monsterToReturn = monster3;
                         break;
                     default:
                         System.out.println("Veuillez choisir un monstre valable.");
@@ -225,6 +233,6 @@ public class Game {
                 monstersNotDead.add(monster);
             }
         }
-        arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size()-1)));
+        arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size())));
     }
 }

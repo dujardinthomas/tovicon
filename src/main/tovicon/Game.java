@@ -266,7 +266,8 @@ public class Game {
 		}return null;
 	}
 
-	public void playItems(Items item){
+	public boolean playItems(Items item){
+		boolean res = false;
 		if(item!=null){
 			System.out.println("Tu utilises "+ item.getName() +" :\n");
 			System.out.println(item.getDescription());
@@ -278,7 +279,11 @@ public class Game {
 			}
 			System.out.println( player.getActualMonster().getName() + "a maintenant : " +player.getActualMonster().getHealth() + " PV \n" );
 			player.getBag().remove(item);
+			res = true;
+		}else {
+			System.out.println("Le sac est vide");
 		}
+		return res;
 	}
 
 	public void printMenuFight(Player player, Arena arena) {
@@ -301,7 +306,12 @@ public class Game {
 				break;
 			case "3" :
                 Utils.clearScreen();
-				playItems(selectItems());
+                if(!playItems(selectItems())) {
+					choice = "-1";
+				}
+                for (int i = 0; i < tab.length;i ++) {
+        			System.out.println((i+1) +". " + tab[i]);
+        		}
 				break;
 			case "4" :
                 Utils.clearScreen();

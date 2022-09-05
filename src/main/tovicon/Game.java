@@ -104,7 +104,11 @@ public class Game {
             // texte attaque (machin utilise machin)
             // joueur1 attaque (perd vie)
             if (player.getActualMonster().getHealth() <= 0) {
-                // arena.changeActualMonster(); TODO change actual monster if dead
+                try {
+                    changeMonster(player);
+                    Utils.clearScreen();
+                }
+                catch (WrongTapeException exception) { System.out.println(exception); }
             }
             System.out.println("C'est au tour de " + player.getName());
             //System.out.println(player.getActualMonster());
@@ -124,7 +128,7 @@ public class Game {
             // joueur2 attaque (perd vie)
             if (!arena.isDefeated()) {
                 if (arena.getActualMonster().getHealth() <= 0) {
-                    // arena.changeActualMonster(); TODO change actual monster if dead && not defeated
+                    changeRandomMonster(arena);
                 }
                 System.out.println("C'est au tour de " + arena.getName());
                 //System.out.println(arena.getActualMonster());
@@ -197,18 +201,30 @@ public class Game {
         return monster.getAttacks().get(Utils.random(0, monster.getAttacks().size()));
     }
 
-    // private void changeMonster(Player player) throws WrongTapeException {
-    //     String choix;
-    //     System.out.println("\nSélectionne ton nouveau  monstre :");
-    //     for (int i = 0; i < player.getMonsters().size(); i++) {
-    //         System.out.println("\n" + (i + 1) + " : " + player.getMonsters().get(i).getName());
-    //     }
-    //     choix = scanner.next();1
+    private void changeMonster(Player player) throws WrongTapeException {
+        String choix;
+        System.out.println("\nSélectionne ton nouveau  monstre :");
+        for (int i = 0; i < player.getMonsters().size(); i++) {
+            if (player.getMonsters().get(i).getHealth() > 0) {
+                System.out.println("\n" + (i + 1) + " : " + player.getMonsters().get(i).getName());
+            }
+        }
+        choix = scanner.next();
 
-    //     if (Integer.parseInt(choix) < 1 || Integer.parseInt(choix) > player.getMonsters().size()) {
-    //         throw new WrongTapeException();
-    //     } else {
-    //         player.setActualMonster(player.getMonsters().get(Integer.parseInt(choix) - 1));
-    //     }
-    // }
+        if (Integer.parseInt(choix) < 1 || Integer.parseInt(choix) > player.getMonsters().size()) {
+            throw new WrongTapeException();
+        } else {
+            player.setActualMonster(player.getMonsters().get(Integer.parseInt(choix) - 1));
+        }
+    }
+
+    private void changeRandomMonster(Arena arena) {
+        ArrayList<Monster> monstersNotDead = new ArrayList<>();
+        for (Monster monster : arena.getMonsters()) {
+            if (monster.getHealth() > 0) {
+                monstersNotDead.add(monster);
+            }
+        }
+        arena.setActualMonster(monstersNotDead.get(Utils.random(0, monstersNotDead.size()-1)));
+    }
 }

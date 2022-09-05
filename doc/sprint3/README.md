@@ -15,10 +15,11 @@
 ### Ce que nous allons faire durant le prochain sprint
 Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer durant le prochain sprint.
 
-    changer de monstre
-    avoir plusieurs attaque
-    combattre l'arene, lancer le combat
-    choisir un pseudo
+    Changer de monstre
+    Avoir plusieurs attaque
+    Combattre l'arène
+    Lancer le combat
+    Choisir un pseudo
 
     pour un total de 17
 
@@ -26,14 +27,19 @@ Donnez ici la liste des histoires utilisateurs que vous vous engagez à terminer
 
 ### Sur quoi avons nous butté ?
 Lister ici tout ce qui était un peut moins bien que parfait.
-* Nous avons terminé, nous avons ameliorer le menus afin d'utiliser des exeptions et non une boucle while verifiant la validité des informations données.
+L'utilisation de certaines méthodes de codage moins bien que d'autres.
 
 * Nous étions pret au moment de la demo ?
-
+La démo était prête
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
-* Rien n'est à ameliorer
-* Comment pouvez-vous mesurer qu'il s'améliore ?
-* Quelles sont toutes les options possible pour l'améliorer ?
-* Qu'allez-vous tester pour l'améliorer ?
+Notre niveau de codage afin de choisir directement la méthode la plus optimale.
 
+* Comment pouvez-vous mesurer qu'il s'améliore ?
+Si nous ne rencontrons pas de bugs.
+
+* Quelles sont toutes les options possible pour l'améliorer ?
+S'entre-aider, poser des questions aux professeurs, faire des recherches...
+
+* Qu'allez-vous tester pour l'améliorer ?
+Demander plus souvent l'avis d'un professeur.
